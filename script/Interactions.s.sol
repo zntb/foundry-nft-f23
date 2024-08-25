@@ -3,19 +3,20 @@ pragma solidity 0.8.20;
 
 import {Script} from "forge-std/Script.sol";
 import {BasicNft} from "../src/BasicNft.sol";
-import {DeployBasicNFT} from "./DeployBasicNFT.s.sol";
+import {DeployBasicNft} from "./DeployBasicNft.s.sol";
 import {DevOpsTools} from "lib/foundry-devops/src/DevOpsTools.sol";
 
 contract MintBasicNft is Script {
     string public constant PUG =
-        "https://ipfs.io/ipns/k51qzi5uqu5dkub7o2drx7sdzm64m6bgeldtmx2r018qz0n6bvua2s2qk32els/0-PUG.json";
-    DeployBasicNFT public deployer;
+        "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json";
+    DeployBasicNft public deployer;
     BasicNft public basicNft;
 
     function run() external {
-        address mostRecentDeployed = DevOpsTools
-            .DevOpsTools
-            .get_most_recent_deployment("BasicNft", block.chainid);
+        address mostRecentDeployed = DevOpsTools.get_most_recent_deployment(
+            "BasicNft",
+            block.chainid
+        );
         mintNftOnContract(mostRecentDeployed);
     }
 

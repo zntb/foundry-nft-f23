@@ -10,7 +10,7 @@ contract BasicNftTest is Test {
     BasicNft public basicNft;
     address public USER = makeAddr("user");
     string public constant PUG =
-        "https://ipfs.io/ipns/k51qzi5uqu5dkub7o2drx7sdzm64m6bgeldtmx2r018qz0n6bvua2s2qk32els/0-PUG.json";
+        "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json";
 
     function setUp() public {
         deployer = new DeployBasicNFT();
